@@ -1,0 +1,349 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor principal de noticias */
+.noticias-container {
+  padding: 20px;
+  padding-bottom: 60px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Encabezado principal */
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
+  font-size: 2.5em;
+  font-weight: 600;
+  width: 100%;
+}
+
+/* Panel de instrucciones */
+.instrucciones {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.instrucciones:focus {
+  outline: 3px solid #1e90ff;
+  outline-offset: 2px;
+  transform: scale(1.01);
+}
+
+.instrucciones p {
+  margin: 10px 0;
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+/* Elementos solo visibles para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tarjeta de noticia */
+.noticia {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: 2px solid transparent;
+}
+
+/* Noticia activa */
+.noticia-activa {
+  outline: 3px solid #1e90ff;
+  background-color: #f8f9fa;
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.noticia-activa::before {
+  content: '▶';
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #1e90ff;
+  font-size: 1.2em;
+}
+
+/* Hover effects */
+.noticia:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos de noticias */
+.noticia h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Párrafos de noticias */
+.noticia p {
+  font-size: 1.1em;
+  color: #d3d2d2;
+  opacity: 2; /* Añadido para atenuar ligeramente el texto */
+  line-height: 1.6;
+  margin: 15px 0;
+  text-align: center;
+}
+
+/* Enlaces */
+.noticia a {
+  display: block;
+  margin: 15px auto;
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: center;
+  width: fit-content;
+}
+
+.noticia a:hover {
+  background-color: #f0f8ff;
+  border-color: #1e90ff;
+}
+
+.noticia a:focus {
+  outline: 3px solid #1e90ff;
+  outline-offset: 2px;
+}
+
+/* Imágenes de noticias */
+.noticia-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 15px auto;
+  display: block;
+}
+
+/* Mensaje de error */
+.error {
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+  background-color: #dc3545;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensaje de carga */
+p[role="status"] {
+  text-align: center;
+  color: #666;
+  font-size: 1.2em;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mejoras de accesibilidad */
+:focus {
+  outline: 3px solid #1e90ff;
+  outline-offset: 2px;
+}
+
+.noticia:focus-visible {
+  outline: 3px solid #1e90ff;
+  outline-offset: 2px;
+}
+
+/* Animación suave para el scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Indicador de progreso de lectura */
+.leyendo {
+  position: relative;
+}
+
+.leyendo::after {
+  content: '🔊';
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1.2em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .noticias-container {
+    padding: 10px;
+  }
+
+  .noticia {
+    margin: 15px auto;
+    padding: 15px;
+    width: calc(100% - 30px);
+  }
+
+  .noticia h2 {
+    font-size: 1.3em;
+  }
+
+  .noticia-img {
+    max-height: 300px;
+  }
+
+  .instrucciones {
+    margin: 15px auto;
+    padding: 15px;
+    font-size: 0.9em;
+    width: calc(100% - 30px);
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+  }
+
+  .noticia {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .noticia h2 {
+    color: #e1e1e1;
+  }
+
+  .noticia p {
+    color: #d3d2d2;
+    opacity: 2; /* Mantenemos la misma opacidad en modo oscuro */
+  }
+  .noticia-activa {
+    background-color: #363636;
+  }
+
+  .instrucciones {
+    background-color: #2d2d2d;
+    border-color: #4a4a4a;
+  }
+
+  h1 {
+    color: #e1e1e1;
+  }
+
+  .noticia a {
+    color: #66b3ff;
+  }
+
+  .noticia a:hover {
+    background-color: #363636;
+    border-color: #66b3ff;
+  }
+
+  p[role="status"] {
+    background-color: #2d2d2d;
+    color: #e1e1e1;
+  }
+
+  .error {
+    background-color: #dc3545;
+    color: #fff;
+  }
+}
+
+/* Animaciones de transición */
+.noticia, .instrucciones, .noticia a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilos para usuarios que prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
